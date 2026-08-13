@@ -1,6 +1,7 @@
 import { Routes } from '@angular/router';
 import { CounterComponent } from './pages/counter/counter.component';
 import { HomeComponent } from './pages/home/home.component';
+import { HeroComponent } from './pages/hero/hero.component';
 
 export const routes: Routes = [
   {
@@ -12,6 +13,11 @@ export const routes: Routes = [
   {
     path: 'counter',
     component: CounterComponent, //carga normal
+    pathMatch: 'full'
+  },
+  {
+    path: 'hero',
+    component: HeroComponent, //carga normal
     pathMatch: 'full'
   },
 ];
