@@ -1,4 +1,4 @@
-import { Component, signal } from '@angular/core';
+import { Component, computed, signal } from '@angular/core';
 
 @Component({
   imports: [],
@@ -11,20 +11,24 @@ export class HeroComponent {
   protected readonly name = signal(this.defaultName);
   protected readonly age = signal(this.defaultAge);
 
-  getHeroDescription() {
-    return `${this.name()} tiene ${this.age()} años`;
-  }
+  heroDescription = computed(() => this.name() + ' tiene ' + this.age() + ' años'); //Se recomienda su uso cuando se necesita un valor reactivo, ya que se ejecuta solo cuando cambia alguna de las señales que lo componen
 
-  getUpperCaseName() {
+  /* getHeroDescription() { //Se recomienda su uso solo en eventos, ya que se ejecuta cada vez que se llama y no es reactivo
+    return `${this.name()} tiene ${this.age()} años`;
+  } */
+
+  /* getUpperCaseName() {
     return this.name().toUpperCase();
-  }
+  } */
+
+  capitalizedName = computed(() => this.name().toUpperCase());
 
   changeHero() {
     this.name.set('Frank');
   }
 
   changeAge() {
-    this.age.set(29);
+    this.age.set(20);
   }
 
   resetForm() {
