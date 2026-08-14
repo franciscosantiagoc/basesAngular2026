@@ -1,7 +1,10 @@
 import { Component, computed, signal } from '@angular/core';
+import { UpperCasePipe } from '@angular/common';
 
 @Component({
-  imports: [],
+  imports: [
+    UpperCasePipe,
+  ],
   templateUrl: './hero.component.html',
   styleUrl: './hero.scss',
 })
