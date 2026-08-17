@@ -2,6 +2,7 @@ import { Routes } from '@angular/router';
 import { CounterComponent } from './pages/counter/counter.component';
 import { HomeComponent } from './pages/home/home.component';
 import { HeroComponent } from './pages/hero/hero.component';
+import { Page404Component } from './pages/page404/page404.component';
 
 export const routes: Routes = [
   {
@@ -20,4 +21,13 @@ export const routes: Routes = [
     component: HeroComponent, //carga normal
     pathMatch: 'full'
   },
+  {
+    path: '404',
+    component: Page404Component,
+    pathMatch: 'full'
+  },
+  {
+    path: '**',
+    redirectTo: '404',
+  }
 ];
