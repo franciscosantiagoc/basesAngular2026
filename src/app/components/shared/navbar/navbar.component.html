@@ -1,5 +1,6 @@
 <nav>
-  <a routerLink="">Home</a>
-  <a routerLink="counter">Counter</a>
-  <a routerLink="hero">Hero</a>
+  <a routerLink="" routerLinkActive="active"
+  [routerLinkActiveOptions]="{ exact: true }">Home</a>
+  <a routerLink="counter" routerLinkActive="active">Counter</a>
+  <a routerLink="hero" routerLinkActive="active">Hero</a>
 </nav>
