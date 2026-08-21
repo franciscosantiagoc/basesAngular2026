@@ -15,6 +15,7 @@ interface Character {
 export class DragonballPageComponent {
   name = signal("Gohan");
   power = signal(500);
+  showError = signal("");
 
   characters = signal<Character[]>([
     {
@@ -58,4 +59,30 @@ export class DragonballPageComponent {
       ]),
     ),
   );
+
+  addCharacter() {
+    if(!this.name() || !this.power()) {
+      this.showError.set("Debes rellenar todos los campos")
+      return;
+    }
+
+    const newCharacter: Character = {
+      id: this.characters.length + 1,
+      name: this.name(),
+      power: this.power()
+    }
+
+    this.characters.update((characterArray)=>[
+      ...characterArray,
+      newCharacter
+    ])
+
+    this.resetFields();
+  }
+
+  resetFields() {
+    this.showError.set("");
+    this.name.set("");
+    this.power.set(0);
+  }
 }

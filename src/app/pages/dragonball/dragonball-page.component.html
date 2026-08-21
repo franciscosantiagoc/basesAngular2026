@@ -19,18 +19,25 @@
       #txtPower
     />
 
-    <button class="btn btn-primary mx-2 mt-2">Agregar</button>
+    <button class="btn btn-primary mx-2 mt-2" (click)="addCharacter()">Agregar</button>
+    <button class="btn btn-danger mx-2 mt-2" (click)="resetFields()">Limpiar</button>
+    @if (showError() != null) {
+      <br>
+      <span class="mt-2" [class.text-danger]="showError() != null ">{{showError()}}</span>
+    }
   </div>
 
   <div class="col-12 col-sm-6">
     <ul>
       @for (character of characters(); track character.id; let idx=$index) {
-        @if (character.power > 500) {
+        @if (character.power >= 500) {
           <li>
             <span>{{idx + 1}} {{character.name}}</span>
             <!-- <span [ngClass]="characterClasses()[character.id]"> {{character.power}}</span> -->
             <span [class.text-danger]="character.power >= 9000" [class.text-warning]="character.power > 5000 && character.power < 9000" [class.text-muted]="character.power <1000"> {{character.power}}</span>
           </li>
+        }@else {
+          <li>{{ idx+1 }} Desconocido</li>
         }
       }
     </ul>
