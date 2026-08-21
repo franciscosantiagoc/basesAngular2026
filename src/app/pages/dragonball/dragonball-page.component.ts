@@ -34,6 +34,11 @@ export class DragonballPageComponent {
       name: 'Yamcha',
       power: 700,
     },
+    {
+      id: 5,
+      name: 'Chaos',
+      power: 400,
+    },
   ]);
 
   characterClasses = computed(() =>
