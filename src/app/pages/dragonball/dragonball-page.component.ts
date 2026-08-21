@@ -13,6 +13,9 @@ interface Character {
   styleUrl: './dragonball-page.component.scss',
 })
 export class DragonballPageComponent {
+  name = signal("Gohan");
+  power = signal(500);
+
   characters = signal<Character[]>([
     {
       id: 1,
