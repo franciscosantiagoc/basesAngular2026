@@ -4,6 +4,7 @@ import { HomeComponent } from './pages/home/home.component';
 import { HeroComponent } from './pages/hero/hero.component';
 import { Page404Component } from './pages/page404/page404.component';
 import { DragonballPageComponent } from './pages/dragonball/dragonball-page.component';
+import { DragonballSuperPageComponent } from './pages/dragonball-super/dragonball-super-page.component';
 
 export const routes: Routes = [
   {
@@ -25,6 +26,11 @@ export const routes: Routes = [
   {
     path: 'dragonball',
     component: DragonballPageComponent,
+    pathMatch: 'full'
+  },
+  {
+    path: 'dragonball-super',
+    component: DragonballSuperPageComponent,
     pathMatch: 'full'
   },
   {
