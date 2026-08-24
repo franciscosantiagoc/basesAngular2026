@@ -1,15 +1,11 @@
 import { Component, computed, signal } from '@angular/core';
-
-interface Character {
-  id: number;
-  name: string;
-  power: number;
-}
+import { CharacterListComponent } from "../../components/dragonball/character-list/character-list.component";
+import { Character } from '../../interfaces/character.interface';
 
 @Component({
   selector: 'dragonball-super',
   templateUrl: './dragonball-super-page.component.html',
-  styleUrl: './dragonball-super-page.component.scss',
+  imports: [CharacterListComponent],
 })
 export class DragonballSuperPageComponent {
   name = signal("");
@@ -51,7 +47,7 @@ export class DragonballSuperPageComponent {
     }
 
     const newCharacter: Character = {
-      id: this.characters.length + 1,
+      id: this.characters().length + 1,
       name: this.name(),
       power: this.power()
     }

@@ -28,18 +28,6 @@
   </div>
 
   <div class="col-12 col-sm-6">
-    <ul>
-      @for (character of characters(); track character.id; let idx=$index) {
-        @if (character.power >= 500) {
-          <li>
-            <span>{{idx + 1}} {{character.name}}</span>
-            <!-- <span [ngClass]="characterClasses()[character.id]"> {{character.power}}</span> -->
-            <span [class.text-danger]="character.power >= 9000" [class.text-warning]="character.power > 5000 && character.power < 9000" [class.text-muted]="character.power <1000"> {{character.power}}</span>
-          </li>
-        }@else {
-          <li>{{ idx+1 }} Desconocido</li>
-        }
-      }
-    </ul>
+    <dragonball-character-list [characters]="characters()"/>
   </div>
 </section>
