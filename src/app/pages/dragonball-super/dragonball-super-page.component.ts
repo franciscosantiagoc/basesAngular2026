@@ -24,20 +24,10 @@ export class DragonballSuperPageComponent {
     },
   ]);
 
-  characterClasses = computed(() =>
-    Object.fromEntries(
-      this.characters().map((character) => [
-        character.id,
-        character.power >= 9000
-          ? 'text-danger'
-          : character.power > 5000
-            ? 'text-warning'
-            : character.power < 1000
-              ? 'text-muted'
-              : '',
-      ]),
-    ),
-  );
-
-
+  addCharacter(newCharacter: Character) {
+    this.characters.update((characterArray)=>[
+      ...characterArray,
+      newCharacter
+    ])
+  }
 }

@@ -1,5 +1,5 @@
 import { Character } from './../../../interfaces/character.interface';
-import { Component, signal } from '@angular/core';
+import { Component, output, signal } from '@angular/core';
 
 @Component({
   selector: 'dragonball-character-add',
@@ -11,6 +11,7 @@ export class CharacterAddComponent {
   power = signal(0);
   showError = signal("");
 
+  newCharacter = output<Character>()
   addCharacter() {
     if(!this.name() || !this.power()) {
       this.showError.set("Debes rellenar todos los campos")
@@ -28,6 +29,7 @@ export class CharacterAddComponent {
       ...characterArray,
       newCharacter
     ]) */
+   this.newCharacter.emit(newCharacter);
    console.log(newCharacter)
 
     this.resetFields();

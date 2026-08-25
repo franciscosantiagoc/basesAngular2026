@@ -1,4 +1,4 @@
-<h3>Agregar: {{name()}} - {{power()}}</h3>
+<h3>Agregar: {{ name() }} - {{ power() }}</h3>
 <input
   type="text"
   class="form-control"
@@ -7,17 +7,18 @@
   (input)="name.set(txtName.value)"
   #txtName
 />
-<input type="number"
+<input
+  type="number"
   class="form-control"
   placeholder="Poder"
   [value]="power()"
-  (input)="power.set((txtPower.valueAsNumber))"
+  (input)="power.set(txtPower.valueAsNumber)"
   #txtPower
 />
 
 <button class="btn btn-primary mx-2 mt-2" (click)="addCharacter()">Agregar</button>
 <button class="btn btn-danger mx-2 mt-2" (click)="resetFields()">Limpiar</button>
 @if (showError() != null) {
-  <br>
-  <span class="mt-2" [class.text-danger]="showError() != null ">{{showError()}}</span>
+  <br />
+  <span class="mt-2" [class.text-danger]="showError() != null">{{ showError() }}</span>
 }
