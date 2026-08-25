@@ -1,0 +1,20 @@
+nav {
+  display: flex;
+  justify-content: space-around;
+  background-color: #212121;
+  color: #fff;
+  padding: 10px;
+
+  a {
+    color: #fff;
+    text-decoration: none;
+
+    &:hover {
+      text-decoration: underline;
+    }
+
+    &.active {
+      color: #ff0000;
+    }
+  }
+}
