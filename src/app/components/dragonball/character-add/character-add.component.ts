@@ -25,10 +25,6 @@ export class CharacterAddComponent {
       power: this.power()
     }
 
-    /* this.characters.update((characterArray)=>[
-      ...characterArray,
-      newCharacter
-    ]) */
    this.newCharacter.emit(newCharacter);
    console.log(newCharacter)
 
